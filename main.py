@@ -35,10 +35,8 @@ while len(correct_guesses) < 50:
 # TODO: Record the correct guesses in a list
         correct_guesses.append(answer_state)
 
-states_learn = {"state": []}
+
 # states_to_learn.csv
-for state in state_list:
-    if state not in correct_guesses:
-        states_learn["state"].append(state)
+states_learn = [state for state in state_list if state not in correct_guesses]
 df = pandas.DataFrame(states_learn)
 df.to_csv("states_to_learn.csv")
